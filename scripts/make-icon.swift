@@ -1,0 +1,26 @@
+import AppKit
+let image = NSImage(size: NSSize(width: 1024, height: 1024))
+image.lockFocus()
+let rect = NSRect(x: 60, y: 60, width: 904, height: 904)
+let path = NSBezierPath(roundedRect: rect, xRadius: 210, yRadius: 210)
+NSColor(calibratedRed: 0.10, green: 0.16, blue: 0.23, alpha: 1).setFill(); path.fill()
+NSColor(calibratedRed: 0.63, green: 0.90, blue: 0.77, alpha: 1).setFill()
+NSBezierPath(ovalIn: NSRect(x: 220, y: 220, width: 570, height: 570)).fill()
+NSColor(calibratedRed: 0.10, green: 0.16, blue: 0.23, alpha: 1).setFill()
+NSBezierPath(ovalIn: NSRect(x: 390, y: 380, width: 470, height: 470)).fill()
+func star(_ x: CGFloat, _ y: CGFloat, _ radius: CGFloat) {
+    let p = NSBezierPath()
+    p.move(to: NSPoint(x: x, y: y + radius))
+    p.line(to: NSPoint(x: x + radius * 0.3, y: y + radius * 0.3))
+    p.line(to: NSPoint(x: x + radius, y: y))
+    p.line(to: NSPoint(x: x + radius * 0.3, y: y - radius * 0.3))
+    p.line(to: NSPoint(x: x, y: y - radius))
+    p.line(to: NSPoint(x: x - radius * 0.3, y: y - radius * 0.3))
+    p.line(to: NSPoint(x: x - radius, y: y))
+    p.line(to: NSPoint(x: x - radius * 0.3, y: y + radius * 0.3)); p.close()
+    NSColor(calibratedRed: 0.85, green: 0.97, blue: 0.91, alpha: 1).setFill(); p.fill()
+}
+star(690, 650, 62); star(795, 475, 32); star(565, 810, 26)
+image.unlockFocus()
+let rep = NSBitmapImageRep(data: image.tiffRepresentation!)!
+try rep.representation(using: .png, properties: [:])!.write(to: URL(fileURLWithPath: CommandLine.arguments[1]))

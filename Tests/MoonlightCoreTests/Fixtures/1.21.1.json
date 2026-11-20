@@ -1,0 +1,51 @@
+{
+  "libraries": [
+    {
+      "name": "example:shared:1"
+    },
+    {
+      "name": "org.lwjgl:lwjgl-glfw:1:natives-macos",
+      "rules": [
+        {
+          "action": "allow",
+          "os": {
+            "name": "osx"
+          }
+        }
+      ]
+    },
+    {
+      "name": "org.lwjgl:lwjgl-glfw:1:natives-macos-arm64",
+      "rules": [
+        {
+          "action": "allow",
+          "os": {
+            "name": "osx"
+          }
+        }
+      ]
+    },
+    {
+      "name": "org.lwjgl:lwjgl-glfw:1:natives-windows",
+      "rules": [
+        {
+          "action": "allow",
+          "os": {
+            "name": "windows"
+          }
+        }
+      ]
+    },
+    {
+      "name": "org.lwjgl:lwjgl-glfw:1:natives-linux",
+      "rules": [
+        {
+          "action": "allow",
+          "os": {
+            "name": "linux"
+          }
+        }
+      ]
+    }
+  ]
+}

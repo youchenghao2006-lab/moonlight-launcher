@@ -1,0 +1,42 @@
+# SwiftPM, Xcode and build products
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+.DS_Store
+._*
+/dist/
+*.app/
+*.dSYM/
+
+# Local game data, integration downloads and release staging
+/.smoke*/
+/.catalog-smoke*/
+/.release*/
+/publish*/
+/release-staging*/
+/instances/
+/versions/
+/assets/
+/libraries/
+/runtime/
+/downloads/
+/backups/
+/staging/
+*.log
+*.jar
+*.mrpack
+*.zip
+!Tests/MoonlightCoreTests/Fixtures/*.zip
+
+# Local identity, credentials and machine-specific files
+.env
+.env.*
+*.p12
+*.pem
+*.key
+*.mobileprovision
+settings.json
+accounts.json
+launcher_profiles.json
+manifest-cache.json
